@@ -35,6 +35,8 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+            # if bullet.rect.right >= self.settings.screen_width:
+            #     self.bullets.remove(bullet)
 
     def _check_events(self):
         for event in pygame.event.get():
@@ -50,10 +52,10 @@ class AlienInvasion:
             self.ship.moving_right = True
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
-        # elif event.key == pygame.K_UP:
-        #     self.ship.moving_up = True  
-        # elif event.key == pygame.K_DOWN:
-        #     self.ship.moving_down = True
+        elif event.key == pygame.K_UP:
+            self.ship.moving_up = True  
+        elif event.key == pygame.K_DOWN:
+            self.ship.moving_down = True
         elif event.key == pygame.K_q:
             sys.exit()
         elif event.key == pygame.K_SPACE:
@@ -70,10 +72,10 @@ class AlienInvasion:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False  
-        # elif event.key == pygame.K_UP:
-        #     self.ship.moving_up = False 
-        # elif event.key == pygame.K_DOWN:
-        #     self.ship.moving_down = False            
+        elif event.key == pygame.K_UP:
+            self.ship.moving_up = False 
+        elif event.key == pygame.K_DOWN:
+            self.ship.moving_down = False            
     
     def _update_screen(self):
         self.screen.fill(self.settings.bg_color)
