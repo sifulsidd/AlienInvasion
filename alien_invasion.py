@@ -27,9 +27,12 @@ class AlienInvasion:
             self.ship.update()
             
             self._update_bullets()
-
+            self._update_aliens()
             self._update_screen()
             self.clock.tick(60)
+    
+    def _update_aliens(self):
+        self.aliens.update()
             
     def _create_fleet(self):
         alien = Alien(self)

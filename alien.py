@@ -13,3 +13,9 @@ class Alien(Sprite):
         self.rect.y = self.rect.height
 
         self.x = float(self.rect.x)
+
+        self.settings = ai_game.settings
+    
+    def update(self):
+        self.x += self.settings.alien_speed
+        self.rect.x = self.x
