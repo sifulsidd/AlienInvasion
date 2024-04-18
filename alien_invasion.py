@@ -125,6 +125,7 @@ class AlienInvasion:
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
     
     def _check_events(self):
         for event in pygame.event.get():
@@ -132,7 +133,7 @@ class AlienInvasion:
                     sys.exit()
                 elif event.type == pygame.KEYDOWN:
                     self._check_keydown_events(event)
-                    if event.key == pygame.K_p:
+                    if event.key == pygame.K_p and self.game_active == False:
                         self._start_game()
                 elif event.type == pygame.KEYUP:
                     self._check_keyup_events(event)
@@ -147,6 +148,7 @@ class AlienInvasion:
             self._start_game()
     
     def _start_game(self):
+        self.settings.initialize_dynamic_setting()
         self.stats.reset_stats()
         self.game_active = True
         self.bullets.empty()
