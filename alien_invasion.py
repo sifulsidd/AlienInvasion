@@ -10,9 +10,7 @@ from button import Button
 class AlienInvasion:
     def __init__(self):
         pygame.init()
-        self.game_active = False
-
-        self.play_button = Button(self, "Play")
+        
 
 
         self.settings = Settings()
@@ -31,8 +29,10 @@ class AlienInvasion:
 
         self.aliens = pygame.sprite.Group()
         self._create_fleet()
+        
+        self.game_active = False
 
-        self.game_active = True
+        self.play_button = Button(self, "Play")
 
     def run_game(self):
         while True:
