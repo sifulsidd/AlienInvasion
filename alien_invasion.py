@@ -5,10 +5,16 @@ from bullet import Bullet
 from alien import Alien
 from time import sleep
 from game_stats import GameStats
+from button import Button
 
 class AlienInvasion:
     def __init__(self):
         pygame.init()
+        self.game_active = False
+
+        self.play_button = Button(self, "Play")
+
+
         self.settings = Settings()
         self.clock = pygame.time.Clock()
         # full screen mode
@@ -164,6 +170,10 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
+
+        if not self.game_active:
+            self.play_button.draw_button()
+        
         pygame.display.flip()
         
 
